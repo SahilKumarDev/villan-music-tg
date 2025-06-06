@@ -1,5 +1,7 @@
+httpx==0.27.2
 aiofiles
 aiohttp
+apscheduler
 asyncio
 beautifulsoup4
 dnspython
@@ -12,7 +14,7 @@ pillow==9.5.0
 psutil
 py-tgcalls==0.9.7
 pykeyboard
-pyrogram==2.0.106
+https://github.com/KurimuzonAkuma/pyrogram/archive/v2.1.24.zip
 python-dotenv
 pyyaml
 requests

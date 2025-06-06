@@ -59,7 +59,7 @@
    - Edit .env with your vars
 8. **Editing Vars:**
    ```bash
-   vi .env
+   nano .env
    ```
    - Press `I` Button On Keyboard To Start Editing.
    - Edit .env With Your Values.
@@ -102,6 +102,66 @@ Stay Updated With The Latest Features And Improvements To Villan Music Bot:
 ### 📜 License
 
 This project Is Licensed Under The MIT License. For More Details, See The [LICENSE](LICENSE) File.
+
+---
+
+
+---
+### Local Run By Docker
+
+```bash
+docker build -t villan-music:latest .
+```
+
+```bash
+notepad .env
+```
+
+
+```bash 
+API_ID=12345678
+API_HASH=your_api_hash_here
+BOT_TOKEN=your_bot_token_here
+MONGO_DB_URI=mongodb://mongo:27017/villan
+STRING_SESSION=your_string_session_here
+OWNER_ID=123456789
+LOG_GROUP_ID=-1001234567890
+MUSIC_BOT_NAME=Villan Music
+```
+
+```bash
+docker network create villan-network
+```
+
+
+```bash
+docker run -d `
+  --name villan-mongo `
+  --restart unless-stopped `
+  --network villan-network `
+  -v mongo_data:/data/db `
+  -p 27017:27017 `
+  mongo:5.0
+```
+
+
+```bash
+docker run -d `
+  --name villan-music-bot `
+  --restart unless-stopped `
+  --env-file .env `
+  --network villan-network `
+  villan-music:latest
+```
+
+
+```bash
+docker ps
+```
+
+```bash
+docker logs -f villan-music-bot
+```
 
 ---
 
